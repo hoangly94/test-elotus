@@ -1,0 +1,33 @@
+import React, { useState } from 'react';
+import { AutoComplete } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import styles from './styles.module.css';
+import { useGetSearchMutation } from '@/store/movie/api';
+import { useRouter } from 'next/router';
+
+const Search = () => {
+  const [options, setOptions] = useState<Array<any>>([]);
+  const [requestSearch, { isLoading }] = useGetSearchMutation();
+  const router = useRouter();
+
+  const onSearch = (keyword: string) => {
+    requestSearch(keyword).then(({ data }: any) => {
+      const searchResult = data.results.map((movie: any) => ({ label: <a href={`/movie/${movie.id}`}>{movie.original_title}</a> }));
+      setOptions(searchResult);
+    })
+  }
+
+  return (
+    <div className={styles.search}>
+      <AutoComplete
+        options={options}
+        style={{ width: 200 }}
+        onSearch={onSearch}
+        placeholder="input here"
+      />
+      <SearchOutlined />
+    </div>
+  )
+}
+
+export default Search

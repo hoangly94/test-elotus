@@ -1,17 +1,16 @@
-import { UserOutlined } from '@ant-design/icons';
 import { Dropdown, MenuProps } from 'antd';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import useCookie from 'react-use-cookie';
 import Logo from './Logo';
+import Search from './Search';
 import styles from './styles.module.css';
 
 const Header = () => {
   const router = useRouter();
   const [getAccessToken, setAccessToken] = useCookie('access-token');
 
-  const onClickLogout = ()=>{
+  const onClickLogout = () => {
     setAccessToken('');
     location.href = "/";
   }
@@ -36,13 +35,7 @@ const Header = () => {
           {/* <Menu /> */}
         </div>
         <div className={styles.right}>
-          {/* <ThemeSwicher /> */}
-
-      {/* <Dropdown menu={{ items }} placement="bottom">
-        <div className={styles.avatar}>
-          <UserOutlined />
-        </div>
-      </Dropdown> */}
+          <Search />
         </div>
       </div>
     </div>

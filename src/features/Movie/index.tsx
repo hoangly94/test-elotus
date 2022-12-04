@@ -6,9 +6,6 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import styles from './styles.module.css';
 
-const Context = React.createContext({
-  name: 'Default',
-});
 const Movie = () => {
   const router = useRouter();
   const { id } = router.query;

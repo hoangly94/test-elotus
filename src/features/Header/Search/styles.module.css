@@ -1,0 +1,12 @@
+.search{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    svg{
+        font-size: 18px;
+        margin: 0 8px;
+    }
+    >div>div{
+        border: 0 !important;
+    }
+}
