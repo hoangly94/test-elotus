@@ -6,7 +6,7 @@ import Home from '@/features/Home';
 
 const IndexPage: NextPage = () => {
   return (
-    <Home/>
+    <div>Page not found</div>
   )
 }
 

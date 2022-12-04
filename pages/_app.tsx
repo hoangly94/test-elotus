@@ -8,19 +8,25 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { appWithTranslation } from "next-i18next";
 import nextI18nextConfig from 'next-i18next.config';
 import Header from '@/features/Header';
+import App from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps) {
+type TProps = AppProps & {
+  env: any;
+};
+
+function MyApp({ Component, pageProps, env }: TProps) {
   const [state, setState] = useState(false);
-  useEffect(()=>{
+  useEffect(() => {
     setState(true);
   }, [])
+
   return (
     <ReduxProvider store={store}>
-      <Header/>
-       <Component {...pageProps}/>
-      {/* {state ? <Component {...pageProps} /> : <div></div>} */}
+        <Header />
+        <Component {...pageProps} />
     </ReduxProvider>
   )
 }
 
-export default appWithTranslation(MyApp, { i18n: nextI18nextConfig });
+export default MyApp;
+// export default appWithTranslation(MyApp, { i18n: nextI18nextConfig });

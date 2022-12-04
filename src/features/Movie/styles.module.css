@@ -1,0 +1,31 @@
+.movie{
+    background: #cdcdcd;
+    padding: 40px;
+    text-align: center;
+}
+.content{
+    width: 600px;
+    margin: 40px auto;
+    display: flex;
+    gap: 18px;
+    img{
+        border-radius: 8px;
+    }
+}
+.title{
+    font-weight: bold;
+    font-size: 28px;
+    text-align: left;
+}
+
+.date{
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.overview{
+    font-size: 16px;
+    line-height: 2;
+    text-align: left;
+}

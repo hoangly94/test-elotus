@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react';
+import classNames from 'classnames';
+import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './styles.module.css';
-
-const defaultImageSrc = 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg';
 
 interface FadeInImageProps {
   src: string,
@@ -10,10 +9,31 @@ interface FadeInImageProps {
 const FadeInImage = ({
   src
 }: FadeInImageProps) => {
-  const imageRef = useRef(null);
-  const Image = useState(<img src={defaultImageSrc} />)
+  const [isLoading, setLoading] = useState(true);
+  const imageRef: any = useRef(null);
 
-  return Image;
+  const defaultImageSrc = process.env.DEFAULT_IMAGE_URL;
+
+  const loadImage = (src: string) => {
+    return new Promise((resolve, reject) => {
+      const loadImg = new Image()
+      loadImg.src = src
+      // wait 2 seconds to simulate loading time
+      loadImg.onload = () => {
+          setLoading(false);
+          imageRef.current.src = src;
+          resolve(src)
+      }
+      loadImg.onerror = err => reject(err)
+    })
+  }
+
+  useEffect(() => {
+    loadImage(src);
+  }, [])
+
+  return <img ref={imageRef} src={defaultImageSrc} className={classNames(!isLoading && 'fade-in-image')} />
 };
+
 
 export default FadeInImage;

@@ -1,4 +1,5 @@
 :root{
+    --main-width: 1200px;
     --header-height: 40px;
     --left-menu-width: 180px;
     --primary-color: #ffc838;

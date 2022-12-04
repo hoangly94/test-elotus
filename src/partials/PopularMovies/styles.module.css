@@ -1,6 +1,36 @@
 .popularMovies{
-    
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: var(--main-width);
+    margin: 40px auto;
+    padding-bottom:18px;
+    text-align: center;
 }
+
 .movie{
+    display: inline-block;
+    margin-right: 18px;
+    img{
+        width: 150px;
+        height: 225px;
+        border-radius: 8px;
+    }
+}
+
+.title{
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.date{
+
+}
+
+.loading{
 
 }
