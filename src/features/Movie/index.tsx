@@ -1,10 +1,9 @@
 import FadeInImage from '@/partials/FadeInImage';
 import { useGetMovieQuery } from '@/store/movie/api';
 import { LoadingOutlined } from '@ant-design/icons';
-import { message, notification } from 'antd';
+import { message } from 'antd';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import NotificationContext from 'src/contexts/Notification';
 import styles from './styles.module.css';
 
 const Context = React.createContext({
