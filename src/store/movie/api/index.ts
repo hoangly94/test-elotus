@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import getMovie from './getMovie';
-import getPopularMovie from './getPopularMovie';
+import getMovieList from './getMovieList';
 import getSearch from './getSearch';
 
 export const movieApi = createApi({
@@ -10,14 +10,14 @@ export const movieApi = createApi({
     baseUrl: `${process.env.API_URL}`,
   }),
   endpoints: (builder) => ({
-    getPopularMovie: builder.query(getPopularMovie),
+    getMovieList: builder.query(getMovieList),
     getMovie: builder.query(getMovie),
     getSearch: builder.mutation(getSearch),
   })
 });
 
 export const {
-  useGetPopularMovieQuery,
+  useGetMovieListQuery,
   useGetMovieQuery,
   useGetSearchMutation
 } = movieApi;

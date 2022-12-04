@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import { useGetSearchMutation } from '@/store/movie/api';
 import { useRouter } from 'next/router';
 
-const Search = () => {
+const MobileSearch = () => {
   const [options, setOptions] = useState<Array<any>>([]);
   const [requestSearch, { isLoading }] = useGetSearchMutation();
   const router = useRouter();
@@ -30,4 +30,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default MobileSearch

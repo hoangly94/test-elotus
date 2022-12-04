@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const Movie = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data, isLoading, error } = useGetMovieQuery(id as string);
+  const { data, isLoading, isError } = useGetMovieQuery(id as string);
 
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -21,8 +21,8 @@ const Movie = () => {
   };
 
   useEffect(()=>{
-    error && errorAlert();
-  },[error])
+    isError && errorAlert();
+  },[isError])
 
   return (
     <>

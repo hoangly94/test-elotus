@@ -2,13 +2,13 @@
     background: #fff;
     display: flex;
     align-items: center;
-    @media (--xs) {
-      display:none;
-    }
-    
+    border: 1px solid #cdcdcd;
     svg{
         font-size: 18px;
         margin: 0 8px;
+    }
+    >div{
+        width:100% !important;
     }
     >div>div{
         border: 0 !important;

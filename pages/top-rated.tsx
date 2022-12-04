@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import React from 'react';
-import Home from '@/features/Home';
+import TopRated from '@/features/TopRated';
 
 const IndexPage: NextPage = () => {
   return (
-    <Home/>
+    <TopRated/>
   )
 }
 

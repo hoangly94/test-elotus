@@ -4,14 +4,21 @@
     text-align: center;
 }
 .content{
-    width: 600px;
-    margin: 40px auto;
-    display: flex;
     gap: 18px;
+    @media (--sm) {
+        margin: 40px auto;
+        width: 600px;
+        display: flex;
+    }
     img{
         border-radius: 8px;
-        width: 200px;
-        height: 300px;
+        width: 100%;
+        margin-bottom:18px;
+        @media (--sm) {
+            width: 200px;
+            height: 300px;
+            margin-bottom:0;
+        }
     }
 }
 .title{

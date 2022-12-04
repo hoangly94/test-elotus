@@ -1,7 +1,9 @@
-
-.menu{
-  width: 400px;
-  @media (--xs) {
+.mobileMenu{
+  svg{
+    fill: #fff;
+    font-size: 25px;
+  }
+  @media (--sm) {
     display:none;
   }
 }
@@ -11,26 +13,20 @@
   flex:1;
   background: transparent !important;
   border-bottom: 0;
-  height: 100%;
   position: relative;
+  margin-bottom:38px;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom:38px;
 
   &>li{
     line-height: 40px;
     & a{
-      color: var(--text-color) !important;
+      color: #383838 !important;
       text-transform: uppercase;
     }
     &:after{
       left:0 !important;
       right:0 !important;
-    }
-  }
-}
-
-.table{
-  :global{
-    .ant-table-tbody{
-
     }
   }
 }
