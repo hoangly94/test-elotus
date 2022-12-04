@@ -1,0 +1,31 @@
+
+.container{
+}
+
+.menu{
+  flex:1;
+  background: transparent;
+  border-bottom: 0;
+  height: 100%;
+  position: relative;
+
+  &>li{
+    line-height: 40px;
+    & a{
+      color: var(--text-color) !important;
+      text-transform: uppercase;
+    }
+    &:after{
+      left:0 !important;
+      right:0 !important;
+    }
+  }
+}
+
+.table{
+  :global{
+    .ant-table-tbody{
+
+    }
+  }
+}

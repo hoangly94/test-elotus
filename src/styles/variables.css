@@ -1,0 +1,39 @@
+:root{
+    --header-height: 40px;
+    --left-menu-width: 180px;
+    --primary-color: #ffc838;
+    /* --primary-color: #18ff18; */
+    --secondary-color: #181818;
+    --background-hover: #484848;
+    --border-color: #cdcdcd;
+    --title-color: #181818;
+}
+
+
+/* html[data-theme=light] {
+    --primary-color: white;
+    --background-color: #F3F9FF;
+    --text-color: #2A507B;
+    --table-pagination-text-color: #5A5C5F;
+    --table-pagination-background-color:#DDE7F6;
+    --box-background-color: #fff;
+    --table-head-text-color: #99B2C6;
+    --text-pool-onchain:#414141;
+    --text-pool-onchain-span: #229653;
+    --text-containerCoin-pool-span: #0B1354;
+    --background-header-wallet: #F9F9F9;
+}
+
+html[data-theme=dark] {
+    --primary-color: #49d5ff;
+    --background-color: #0A0E27;
+    --text-color: #DBE0E6;
+    --table-pagination-text-color: #DBE0E6;
+    --table-pagination-background-color:#062141;
+    --box-background-color: #0D1633;
+    --table-head-text-color: #99B2C6;
+    --text-pool-onchain:#B3B5BD;
+    --text-pool-onchain-span: #00DBF8;
+    --text-containerCoin-pool-span: #FFFFFF;
+    --background-header-wallet: #0C1D47;
+} */
