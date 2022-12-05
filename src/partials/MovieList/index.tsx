@@ -1,6 +1,6 @@
 import { useGetMovieListQuery } from '@/store/movie/api';
 import { AppstoreOutlined, LoadingOutlined, RedoOutlined, UnorderedListOutlined } from '@ant-design/icons';
-import { message } from 'antd';
+import { message, Skeleton } from 'antd';
 import React, { useEffect, useState } from 'react';
 import FadeInImage from '../FadeInImage';
 import styles from './styles.module.css';
@@ -37,9 +37,16 @@ const MovieList = ({
         </div>
       </div>
       <div className={styles.MovieList} style={{ fontSize: '50px', whiteSpace: isGrid ? 'normal' : 'nowrap' }} >
+
         {
           isLoading
-            ? <LoadingOutlined style={{ fontSize: '50px' }} />
+            ? Array(20).fill(0).map((data, index) => (
+              <a key={index} className={styles.movie}>
+                <Skeleton.Image active />
+                <Skeleton.Input className={styles.title} active />
+                <Skeleton.Input className={styles.date} active={true} />
+              </a>
+            ))
             : data && data.results.map((movie: any) => (
               <a key={movie.id} className={styles.movie} href={`/movie/${movie.id}`}>
                 <FadeInImage src={`${process.env.IMAGE_URL}${movie.poster_path}`} />

@@ -13,15 +13,15 @@ const MobileMenu = () => {
 
   const items = [
     {
-      label: <a href="./">{t('home')}</a>,
+      label: <a href="/">{t('home')}</a>,
       key: '',
     },
     {
-      label: <a href="./now-playing">Now Playing</a>,
+      label: <a href="/now-playing">Now Playing</a>,
       key: 'now-playing',
     },
     {
-      label: <a href="./top-rated">Top Rated</a>,
+      label: <a href="/top-rated">Top Rated</a>,
       key: 'top-rated',
     },
   ];

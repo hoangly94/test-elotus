@@ -1,7 +1,7 @@
 import FadeInImage from '@/partials/FadeInImage';
 import { useGetMovieQuery } from '@/store/movie/api';
 import { LoadingOutlined } from '@ant-design/icons';
-import { message } from 'antd';
+import { message, Skeleton } from 'antd';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import styles from './styles.module.css';
@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const Movie = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data, isLoading, isError } = useGetMovieQuery(id as string);
+  const { data, isLoading, isError } = useGetMovieQuery(id as string, { skip: !id });
 
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -20,9 +20,9 @@ const Movie = () => {
     });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     isError && errorAlert();
-  },[isError])
+  }, [isError])
 
   return (
     <>
@@ -30,16 +30,23 @@ const Movie = () => {
       <div className={styles.movie}>
         {
           isLoading
-            ? <LoadingOutlined style={{ fontSize: '50px' }} />
+            ? <div className={styles.content}>
+              <Skeleton.Image active />
+              <div>
+                <Skeleton.Input className={styles.title} active />
+                <Skeleton.Input className={styles.date} active />
+                <Skeleton.Input className={styles.overview} active />
+              </div>
+            </div>
             :
             data && <div className={styles.content}>
-              <FadeInImage src={`${process.env.IMAGE_URL}${data.poster_path}`} />
+              <div><FadeInImage src={`${process.env.IMAGE_URL}${data.poster_path}`} /></div>
               <div>
                 <div className={styles.title}>{data.original_title}</div>
                 <div className={styles.date}>{data.release_date}</div>
                 <div className={styles.overview}>{data.overview}</div>
               </div>
-            </div> 
+            </div>
         }
       </div>
     </>
